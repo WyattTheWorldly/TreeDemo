@@ -111,14 +111,23 @@ class BinarySearchTree{
 	   }
    }
    
-   
-   
-   /*
-   a method to find the node in the tree
-   with a specific value
-   */
+   /**
+    * A method to find the node in the tree
+    * with a specific value.
+    * @param root Starting node.
+    * @param key Value to search for.
+    * @return True if value is in tree. False if value is not found.
+    */
    public boolean find(Node root, int key){
-	  //implement me
+	   
+	  if(root == null) return false;
+	  if(root.value == key) return true;
+	  
+	  if(key < root.value) {
+		  find(root.left, key);
+	  }else {
+		  find(root.right, key);
+	  }
       return false;           
    }
    
@@ -208,7 +217,13 @@ public class TreeDemo{
       System.out.print("post-order :   ");
       t1.postOrderTraversal(t1.root);
       System.out.println();
-           
       
-   }  
+      //Displays find function.
+      System.out.println("\n8 exists in tree :   "+t1.find(t1.root, 8));
+      System.out.println("24 exists in tree :   "+t1.find(t1.root, 24));
+      t1.find(null, 24);
+      
+   }
+
+
 }
