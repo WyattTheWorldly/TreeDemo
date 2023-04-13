@@ -131,15 +131,16 @@ class BinarySearchTree{
       return false;           
    }
    
-   
-   
-   /*
-   a method to find the node in the tree
-   with a smallest key
-   */
+   /**
+    * A method to find the node in the tree with the smallest key.
+    * @param root Starting node
+    * @return returns the smallest key in the tree.
+    */
    public int getMin(Node root){
-      //implement me
-	   return 0;
+	   if (root == null) return -1;
+	   if (root.left == null)
+	        return root.value;
+	    return getMin(root.left);
    }
   
   
@@ -221,7 +222,9 @@ public class TreeDemo{
       //Displays find function.
       System.out.println("\n8 exists in tree :   "+t1.find(t1.root, 8));
       System.out.println("24 exists in tree :   "+t1.find(t1.root, 24));
-      t1.find(null, 24);
+      
+      //Displays getMin function.
+      System.out.println("\nsmallest number :   "+t1.getMin(t1.root));
       
    }
 
