@@ -15,8 +15,9 @@ class BinarySearchTree{
 
    Node root;
    
-   /*
-    * inserts a node into the tree
+   /**
+    * Inserts a node into the tree.
+    * @param value Value to be inserted into the tree.
     */
    public void insert(int value) {
 	   // tree is empty
@@ -49,9 +50,12 @@ class BinarySearchTree{
 	   } // closing main if-else
    }
    
-  /*
-   recursive insert method
-   */
+   /**
+    * Recursive insert method for BST.
+    * @param root Starting node.
+    * @param value Value to be inserted.
+    * @return Returns the starting node.
+    */
    public Node insert(Node root, int value){
       //base case
       if(root == null){
@@ -134,7 +138,7 @@ class BinarySearchTree{
    /**
     * A method to find the node in the tree with the smallest key.
     * @param root Starting node
-    * @return returns the smallest key in the tree.
+    * @return Returns the smallest key in the tree.
     */
    public int getMin(Node root){
 	   if (root == null) return -1;
@@ -143,23 +147,28 @@ class BinarySearchTree{
 	    return getMin(root.left);
    }
   
-  
-  
-   /*
-   a method to find the node in the tree
-   with a largest key
-   */
+ 
+   /**
+    * A method to find the node in the tree with the largest key.
+    * @param root Starting node.
+    * @return Returns the largest key in the tree.
+    */
    public int getMax(Node root){
-	  //implement me
-	   return 0;
+	   if(root == null) return -1;
+	   if(root.right == null) {
+		   return root.value;
+	   }
+	   return getMax(root.right);
    }
    
    
    
-   /*
-   this method will not compile until getMax
-   is implemented
-   */
+   /**
+    * Deletes a node from the tree.
+    * @param root Starting node.
+    * @param key Value to be deleted from tree.
+    * @return Returns the starting node.
+    */
    public Node delete(Node root, int key){
       
       if(root == null){
@@ -226,6 +235,14 @@ public class TreeDemo{
       //Displays getMin function.
       System.out.println("\nsmallest number :   "+t1.getMin(t1.root));
       
+      //Displays getMax function.
+      System.out.println("\nlargest number :   "+t1.getMax(t1.root));
+      
+      //Displays delete function
+      t1.delete(t1.root, 90);
+      System.out.print("Deleted 90 :   ");
+      t1.preOrderTraversal(t1.root);
+      System.out.println();
    }
 
 
