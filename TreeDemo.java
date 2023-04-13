@@ -99,11 +99,16 @@ class BinarySearchTree{
    
    
    
-   /*
-   post-order traversal
-   */
+   /**
+    * A simple recursive method to print BST in post-order.
+    * @param root Starting node.
+    */
    public void postOrderTraversal(Node root){
-      //implement me
+	   if(root != null) {
+	    	  preOrderTraversal(root.left);
+	    	  preOrderTraversal(root.right);
+	    	  System.out.print(root.value + " ");
+	   }
    }
    
    
@@ -189,12 +194,19 @@ public class TreeDemo{
       t1.insert(90);
       t1.insert(22);
             
+      //Displays preOrderTraversal function.
       System.out.print("pre-order :   ");
       t1.preOrderTraversal(t1.root);
       System.out.println();
       
+      //Displays inOrderTraversal function.
       System.out.print("in-order :   ");
       t1.inOrderTraversal(t1.root);
+      System.out.println();
+      
+      //Displays postOrderTraversal function.
+      System.out.print("post-order :   ");
+      t1.postOrderTraversal(t1.root);
       System.out.println();
            
       
