@@ -71,11 +71,16 @@ class BinarySearchTree{
    
    
    
-   /*
-   pre-order traversal
-   */
+   /**
+    * A simple recursive method to print BST in pre-order.
+    * @param root Starting node.
+    */
    public void preOrderTraversal(Node root){
-      //implement me
+      if(root != null) {
+    	  System.out.print(root.value + " ");
+    	  preOrderTraversal(root.left);
+    	  preOrderTraversal(root.right);
+      }
    }
 
    
@@ -180,6 +185,10 @@ public class TreeDemo{
       t1.insert(90);
       t1.insert(22);
             
+      System.out.print("pre-order :   ");
+      t1.preOrderTraversal(t1.root);
+      System.out.println();
+      
       System.out.print("in-order :   ");
       t1.inOrderTraversal(t1.root);
       System.out.println();
